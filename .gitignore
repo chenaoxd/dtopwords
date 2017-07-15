@@ -11,5 +11,5 @@ node_modules/*
 *.txt
 candidates_dir/*
 tmp*
-corpus/
 loop_res/
+corpus/
