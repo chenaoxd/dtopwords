@@ -1,0 +1,15 @@
+*~
+.#*
+*.pyc
+*.swp
+db.sqlite3
+.DS_Store
+*#
+.sass-cache/*
+node_modules/*
+*.old
+*.txt
+candidates_dir/*
+tmp*
+corpus/
+loop_res/
