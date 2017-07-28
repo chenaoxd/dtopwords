@@ -48,7 +48,7 @@ def filter_by_threshold(src_path, dtop_path, trg_path):
     src_name = src_path.split('/')[-1]
     punc_filtered_path = './inter_results/%s.pun_filtered' % src_name
     pat_matched_path = './inter_results/all_matched_words.txt'
-    dtop_path = './results/3024.txt'
+    #dtop_path = './results/3024.txt'
     temp_dict = load_temp()
     get_all_matched_words(temp_dict, punc_filtered_path, pat_matched_path)
 
@@ -72,6 +72,6 @@ if __name__ == '__main__2':
 if __name__ == '__main__':
     src_path = sys.argv[1]
     trg_path = sys.argv[2]
-    dtop_res_path = './results/dtop_res.txt'
-    generate_domain_words(src_path, dtop_res_path)
+    dtop_res_path = './results/test.txt'
+    #generate_domain_words(src_path, dtop_res_path)
     filter_by_threshold(src_path, dtop_res_path, trg_path)
