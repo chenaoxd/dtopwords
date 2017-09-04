@@ -5,9 +5,13 @@ import sys
 
 from ngram import PUNC_SET, load_ngram
 from dtopwords import generate_domain_words
+from rule0 import get_tempS_filtered_ngrams
 
 dtop_threshold = 0.0004
 pat_threshold = 2
+FILTER_BY_TEMP2 = True
+CORPUS_DIR = './corpus'
+
 def load_temp(temp_path='./corpus/random_select_aver.txt', num=300):
     temp_dict = {}
     count = 0
@@ -64,7 +68,24 @@ def filter_by_threshold(src_path, dtop_path, trg_path):
         #print tu[1] * pat_matched , dtop_threshold * pat_threshold
         if tu[1] * pat_matched < dtop_threshold * pat_threshold:
             continue
-        output_file.write('%s\t%.6f\t%d\n' % (tu[0], tu[1], pat_matched))
+        #output_file.write('%s\t%.6f\t%d\n' % (tu[0], tu[1], pat_matched))
+        output_file.write('%s\t%.6f\n' % (tu[0], tu[1]))
+
+def filter_by_tempS(seged_file_path, trg_path):
+
+    def add_spaces(line):
+        return ' '.join([a.encode('utf-8') for a in list(line.decode('utf-8'))])
+
+    get_tempS_filtered_ngrams(seged_file_path, CORPUS_DIR + '/tempS_filtered.txt', CORPUS_DIR + '/tempS_filtered_ngram.txt')
+    temps_filtered_ngrams = load_ngram(CORPUS_DIR + '/tempS_filtered_ngram.txt')
+    key_set = set([add_spaces(a.replace(' ','')) for a in temps_filtered_ngrams])
+
+    previous_ngrams_list = load_ngram(trg_path, order=True)
+    trg_file = open(trg_path, 'w')
+    for tu in previous_ngrams_list:
+        if tu[0] not in key_set:
+            continue
+        trg_file.write('%s\t%.6f\n' % (tu[0], tu[1]))
 
 if __name__ == '__main__2':
     filter_by_threshold('./corpus/c4x@TsinghuaX@30240184X.txt', './results/dtop_res.txt', './results/final.txt')
@@ -72,6 +93,12 @@ if __name__ == '__main__2':
 if __name__ == '__main__':
     src_path = sys.argv[1]
     trg_path = sys.argv[2]
+
+    if FILTER_BY_TEMP2:
+        seged_file_path = sys.argv[3]
     dtop_res_path = './results/dtop_res.txt'
     generate_domain_words(src_path, dtop_res_path)
     filter_by_threshold(src_path, dtop_res_path, trg_path)
+
+    if FILTER_BY_TEMP2:
+        filter_by_tempS(seged_file_path, trg_path)
