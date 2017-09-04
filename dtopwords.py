@@ -196,13 +196,13 @@ def compute_theta(src_corpus_path, line_len_threshold=15, splitor='',  inter_dir
         for i in range(0, len(src_list), n):
             yield src_list[i: i+n]
 
-    theta_dict_tmp = json.load(open('/home/dreamszl/code/ngram-tool/topwords_tmp/pro_dict/%s.pro' % src_name))
+    theta_dict_tmp = json.load(open('./inter_results/%s.pun_filtered.pro' % src_name))
     theta_dict = {}
     for key in theta_dict_tmp:
         theta_dict[key.encode('utf-8')] = theta_dict_tmp[key]
     print '--'
 
-    iota_dict_tmp = json.load(open('/home/dreamszl/code/ngram-tool/topwords_tmp/pro_dict/%s.pro' % src_name))
+    iota_dict_tmp = json.load(open('./inter_results/%s.pun_filtered.pro' % src_name))
     iota_dict = {}
     for key in iota_dict_tmp:
         iota_dict[key.encode('utf-8')] = iota_dict_tmp[key]
@@ -331,8 +331,11 @@ def generate_domain_words(src_path, trg_path):
     generate_punc_filtered_corpus(src_path, punc_filtered_path, splitor='')
     trg_files = [punc_filtered_path]
     initialize_static_files(trg_files)
-    compute_theta(src_corpus_path=punc_filtered_path, iter_num=5)
+    compute_theta(src_corpus_path=punc_filtered_path, iter_num=5, src_name=src_name)
     os.system('cp inter_results/iterations/iota_iter4_result.txt %s' % trg_path)
 
-if __name__ == '__main__':
+if __name__ == '__main__2':
     generate_domain_words('./corpus/c4x@TsinghuaX@30240184X.txt', './results/3024.txt')
+
+if __name__ == '__main__':
+    generate_domain_words('./corpus/all_scripts.txt', './results/test.txt')
