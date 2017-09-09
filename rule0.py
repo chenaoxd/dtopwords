@@ -1,5 +1,4 @@
 #coding=utf-8
-<<<<<<< HEAD
 import os
 from ngram import generate_all_ngram
 
@@ -9,16 +8,6 @@ TRIGRAM_PATH = os.path.join(CORPUS_DIR, '/trigram_harmonic_merge_3_10000sms.txt'
 SEGMENTED_COURSE_TEXT = os.path.join(CORPUS_DIR, '/seged_datastructure.txt')
 TEMPS_FILTERED_PATH = os.path.join(CORPUS_DIR, '/tempS_filtered.txt')
 TEMPS_FILTERED_NGRAM_PATH = os.path.join(CORPUS_DIR, '/tempS_filtered_ngram.txt')
-=======
-from ngram import generate_all_ngram
-
-CORPUS_DIR = './corpus'
-BIGRAM_PATH = CORPUS_DIR + '/bigram_harmonic_merge_3_10000sms.txt'
-TRIGRAM_PATH = CORPUS_DIR + '/trigram_harmonic_merge_3_10000sms.txt'
-SEGMENTED_COURSE_TEXT = CORPUS_DIR + '/seged_datastructure.txt'
-TEMPS_FILTERED_PATH = CORPUS_DIR + '/tempS_filtered.txt'
-TEMPS_FILTERED_NGRAM_PATH = CORPUS_DIR + '/tempS_filtered_ngram.txt'
->>>>>>> 2d4385788340698ebcb6164cc73fd62e53c5e118
 
 class Filter(object):
     def __init__(self, typestr):
