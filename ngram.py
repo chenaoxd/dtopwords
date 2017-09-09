@@ -6,14 +6,15 @@ import shelve
 import operator
 #from helper import stanford_seg
 import unicodedata
+import settings
 
 #db = MySQLdb.connect(host='localhost', user='root', passwd='', db='test_ngram', charset='utf8')
 #dc = db.cursor()
 PUNC_SET = set(u'!#$%&()*+,-./:;<=>?@[\]^_`{|}~＂＃＄％＆＇（）＊＋，－／：；＜＝＞＠［＼］＾＿｀｛｜｝～､　、〜〟〰〾〿–—„…‧﹏﹑﹔·！？｡。□．×℃°ｔ′ｘ…∶∠→．△Ｉ≤‖±●Δ∞∈％≥。，？√﹟<"《》“”．％—…』『／’‘Ｉ（）．％「」─〔？【】．…⦅\'')
 
-ROOT_PATH = '/home/dreamszl/nlp/boss/'
-TEXT_PATH = ROOT_PATH + 'swig/data/pieces/'
-SOURCE_PATH = ROOT_PATH + 'corpora/swig-20150322.txt'
+ROOT_PATH = settings.ROOT_DIR
+TEXT_PATH = os.path.join(ROOT_PATH, 'swig/data/pieces/')
+SOURCE_PATH = os.path.join(ROOT_PATH, 'corpora/swig-20150322.txt')
 
 def generate_punc_filtered_corpus(src_path, trg_path, splitor=' '):
     src_text = open(src_path)

@@ -2,19 +2,22 @@
 import json
 import multiprocessing
 import math
+import os
 
 from ngram import *
 
-fre_score_json = './corpus/score_dict_fre.json'
-rf_score_json = './corpus/score_dict_rf2.json'
+import settings
+
+fre_score_json = os.path.join(settings.CORPUS_DIR, 'score_dict_fre.json')
+#rf_score_json = './corpus/score_dict_rf2.json'
 #wscore_json = './topwords_tmp/pro_dict/score_dict_wscore.json'
 #emi_json = './topwords_tmp/pro_dict/score_dict_emi.json'
 #af_json = './topwords_tmp/pro_dict/score_dict_af.json'
 #rf_json = './topwords_tmp/pro_dict/score_dict_rf.json'
 #fre2_json = './topwords_tmp/pro_dict/score_dict_fre2.json'
 
-len_c = 50
-varphi = 0.9
+len_c = settings.LEN_C
+varphi = settings.VARPHI
 
 def w2cs(word):
     word = word.replace(' ', '')
