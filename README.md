@@ -5,6 +5,7 @@
 - 代码运行（需要在 linux 环境下运行）
   - 将 corpus.tar.gz (https://drive.google.com/open?id=0B_tvb3s-yy6fc1hzUGdSSzFNLTg) 的内容，解压到代码目录的 corpus/ 目录中
   - python pipeline src_path trg_path 即可自动运行全部代码，输出抽取出的领域新词
+     - 例如：`python pipeline.py corpus/c4x@TsinghuaX@30240184X.txt results/result.txt`
   - 其中 src_path 是语料路径（例如学堂在线字幕路径无需分词，例如 corpus/c4x@TsinghuaX@30240184X.txt
   - 其中 trg_path 是输出路径
   - 结果样例参见 results/ 目录
