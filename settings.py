@@ -17,3 +17,5 @@ DTOP_THRESHOLD = 0.0004   # 过滤阈值，D-Topwords 值小于该值的词直�
 PATTERN_THRESHOLD = 2     # 具体算法参见 pipeline.py 72行，越大的值越严格
 
 # ABC 规则过滤，无相关参数需要调节
+
+USE_RULE0 = False

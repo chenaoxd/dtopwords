@@ -1,5 +1,7 @@
 #coding=utf-8
 import os
+import settings
+
 from ngram import generate_all_ngram
 
 CORPUS_DIR = settings.CORPUS_DIR
