@@ -14,7 +14,7 @@ pat_threshold = settings.PATTERN_THRESHOLD
 FILTER_BY_TEMP2 = settings.USE_RULE0
 CORPUS_DIR = settings.CORPUS_DIR
 
-INTER_PATH = os.path.join(CORPUS_DIR, 'inter_results')
+INTER_PATH = os.path.join('.', 'inter_results')
 
 def load_temp(temp_path=os.path.join(CORPUS_DIR, 'random_select_aver.txt'), num=300):
     temp_dict = {}
