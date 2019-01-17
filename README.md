@@ -88,3 +88,7 @@ l o g n	0.000841	21
 计 算 成 本	0.000718	15
 节 点	0.000709	313
 ```
+
+### 相关论文
+
+- Chen, Ao, and Maosong Sun. "Domain-Specific New Words Detection in Chinese." Proceedings of the 6th Joint Conference on Lexical and Computational Semantics (* SEM 2017). 2017.
