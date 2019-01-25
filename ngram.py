@@ -132,7 +132,11 @@ def get_ngram(gram_num, file_path, output_path, filter_num=0, preprocessor=not_p
             if splitor != '':
                 segs = line.split(splitor)
             else:
-                segs = [a.encode('utf-8') for a in list(line.decode('utf-8'))]
+                try:
+                    segs = [a.encode('utf-8') for a in list(line.decode('utf-8'))]
+                except:
+                    print("Error occurs when decode line")
+                    continue
 
             for index in range(0, len(segs) - gram_num + 1):
                 ngram = ' '.join(segs[index:index + gram_num])
